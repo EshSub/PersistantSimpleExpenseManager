@@ -95,10 +95,11 @@ public class AddAccountFragment extends Fragment implements View.OnClickListener
                 }
 
                 if (currentExpenseManager != null) {
+                    System.out.println("ESHAN, Add account called");
                     currentExpenseManager.addAccount(accountNumStr, bankNameStr, accountHolderStr,
                             Double.parseDouble(initialBalanceStr));
                 }
-                cleanUp();
+//                cleanUp();
                 break;
         }
     }
