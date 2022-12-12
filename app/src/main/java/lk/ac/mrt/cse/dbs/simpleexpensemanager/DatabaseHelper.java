@@ -90,7 +90,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public long createTransaction(Transaction transaction){
         System.out.println("ESHAN db create transaction");
-        SQLiteDatabase db =  this.getReadableDatabase();
+        SQLiteDatabase db =  this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(ACCOUNT_NO, transaction.getAccountNo());
         values.put(DATE, transaction.getDate().toString());
@@ -121,7 +121,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public void removeAccount(String accountNo){
         System.out.println("ESHAN DB delete account "+accountNo);
-        SQLiteDatabase db = this.getReadableDatabase();
+        SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_ACCOUNTS, ACCOUNT_NO+" = ?", new String[] {accountNo});
     }
 
