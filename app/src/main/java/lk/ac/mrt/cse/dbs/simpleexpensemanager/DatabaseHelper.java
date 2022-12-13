@@ -17,26 +17,26 @@ import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.model.Transaction;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    public static final int VERSION = 1;
-    public static final String NAME = "db";
+    private static final int VERSION = 1;
+    private static final String NAME = "db";
 
-    public static final String TABLE_ACCOUNTS = "accounts";
-    public static final String TABLE_TRANSACTIONS = "transactions";
+    private static final String TABLE_ACCOUNTS = "accounts";
+    private static final String TABLE_TRANSACTIONS = "transactions";
 
     //common columns
 //    private static final String PRIMARY_KEY = "id";
-    public static final String ACCOUNT_NO = "accountNo";
+    private static final String ACCOUNT_NO = "accountNo";
 
     //accounts table columns
-    public static final String BANK_NAME = "bankName";
-    public static final String ACCOUNT_HOLDER_NAME = "accountHolderName";
-    public static final String BALANCE = "balance";
+    private static final String BANK_NAME = "bankName";
+    private static final String ACCOUNT_HOLDER_NAME = "accountHolderName";
+    private static final String BALANCE = "balance";
 
     //transaction table columns
-    public static final String TRANSACTION_ID = "id";
-    public static final String TYPE = "expenseType";
-    public static final String AMOUNT = "amount";
-    public static final String DATE = "Date";
+    private static final String TRANSACTION_ID = "id";
+    private static final String TYPE = "expenseType";
+    private static final String AMOUNT = "amount";
+    private static final String DATE = "Date";
 
     private static final String CREATE_TABLE_ACCOUNTS ="CREATE TABLE " + TABLE_ACCOUNTS +"(" + ACCOUNT_NO +" VARCHAR(20) PRIMARY KEY," + BANK_NAME +" VARCHAR(20)," + ACCOUNT_HOLDER_NAME +" VARCHAR(100)," + BALANCE +" NUMERIC(15,2)" +")";
     private static final String CREATE_TABLE_TRANSACTIONS ="CREATE TABLE " + TABLE_TRANSACTIONS +"(" + TRANSACTION_ID +" INTEGER PRIMARY KEY AUTOINCREMENT,"  + ACCOUNT_NO +" VARCHAR(20) REFERENCES " + TABLE_ACCOUNTS + "(" + ACCOUNT_NO + "),"  + TYPE +" VARCHAR(20)," + AMOUNT +" NUMERIC(12,2)," + DATE +" TEXT" +")";
